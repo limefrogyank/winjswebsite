@@ -1,0 +1,80 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>BlogPage</title>
+
+    <!--<link href="/app.css" rel="stylesheet" />-->
+    <script src="/Views/Blog/BlogTemplateSelector.js"></script>
+    <script src="/Models/TumblrModels.js"></script>
+    <link href="/Views/Blog/BlogView.css" rel="stylesheet" />
+    <script src="/ViewModels/BlogViewModel.js"></script>
+    <script src="/Views/Blog/BlogView.js"></script>
+</head>
+<body>
+    <div id="textTemplate" data-win-control="WinJS.Binding.Template" style="display:none">
+        <div class="textTemplateClass">
+            <h5 data-win-bind="innerText: date Converters.readableDate"></h5>
+            <h1 data-win-bind="innerText: title"></h1>
+            <div class="bodyContent" data-win-bind="innerHTML: body BindingInitializers.setInnerHTML"></div>
+            <!--<button class="win-interactive win-button" data-win-bind="onclick: buttonClickCommandBind; innerText: title"></button>-->
+        </div>
+    </div>
+    <div id="photoTemplate" data-win-control="WinJS.Binding.Template" style="display:none">
+        <div class="photoTemplateClass">
+            <h5 data-win-bind="innerText: date Converters.readableDate"></h5>
+            <p>
+                <img data-win-bind="src: photos Converters.firstPhotoUrl" />
+            </p>
+            <p>
+                <div data-win-bind="innerHTML: caption BindingInitializers.setInnerHTML"></div>
+            </p>
+        </div>
+    </div>
+
+    <div id="content">
+
+        <!-- The content that will be loaded and displayed. -->
+        <!--<div>
+            <button class="win-button">
+                Testing!
+            </button>
+
+            <div>
+                <h1 class="titlearea win-type-ellipsis">
+                    <span class="pagetitle" data-win-bind="textContent: dataContext.pageTitle"></span>
+                </h1>
+            </div>
+            <div>
+                <p>
+                    <span data-win-bind="textContent: dataContext.sampleText"></span>
+                </p>
+                <p>
+                    <button class="win-button home-button" data-win-bind="onclick:showMessageDialogCommandBind; textContent: dataContext.commandButtonText"></button>
+                </p>
+                <p>
+                    <div class="list-items-title">Sample list items:</div>-->
+        <div id="bloglistView"
+             data-win-control="WinJS.UI.ListView"
+             data-win-bind="winControl.itemDataSource: dataContext.itemsSource.dataSource; winControl.oniteminvoked: listItemInvokedBind"
+             data-win-options="{itemTemplate: McPhersonApps.Views.blogTemplateSelector,
+                                layout:{ type: WinJS.UI.ListLayout }
+                                }">
+        </div>
+        <!--<div id="postRepeater"
+             data-win-control="WinJS.UI.Repeater"
+             data-win-bind="winControl.data: dataContext.itemsSource"
+             data-win-option="{template: McPhersonApps.Views.blogTemplateSelector}"
+             >
+           
+        </div>-->
+
+        <!--</p>
+
+            </div>
+
+        </div>-->
+    </div>
+</body>
+</html>
+

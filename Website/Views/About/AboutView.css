@@ -1,0 +1,48 @@
+﻿#aboutContent {
+    /*margin-left:10px;
+    margin-right:10px;*/
+    margin:10px;
+    vertical-align:top;
+    
+    overflow: auto;
+ 
+    
+}
+
+#heading{
+    text-wrap:normal;
+    width:100%;
+    min-height:200px;
+    /*display:flex;
+    flex-direction:row;*/
+   
+}
+
+#meImage{
+    max-width:300px;
+    max-height:200px;
+    width:auto;
+    height:auto;
+    float:left;
+    margin-right:20px;
+}
+
+#myName{
+    font-size:20pt;
+    
+    
+    
+}
+
+/*@media (max-width: 500px){
+
+#heading{
+    text-wrap:normal;
+    width:calc(100%-100px);
+    display:flex;
+}
+
+    #meImage{
+        max-width:100px;
+    }
+}*/

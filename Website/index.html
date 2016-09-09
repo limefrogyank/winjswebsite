@@ -1,0 +1,102 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https://api.tumblr.com; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' ;">
+
+    <link href="/WinJS/css/ui-dark.css" rel="stylesheet" />
+    <link href="Scripts/unsemantic.css" rel="stylesheet" />
+
+    <!-- WinJS Reference -->
+    <script src="/WinJS/js/base.js"></script>
+    <script src="/WinJS/js/ui.js"></script>
+    <script src="/WinJS/js/en-US/ui.strings.js"></script>
+
+   
+
+    <!-- TypedMVVM Infrastructure -->
+    <script src="/Scripts/typedMVVM/Utils/Helpers.js"></script>
+    <script src="/Scripts/typedMVVM/IoC/Container.js"></script>
+    <script src="/Scripts/typedMVVM/services/DialogService.js"></script>
+    <script src="/Scripts/typedMVVM/commands/RelayCommand.js"></script>
+    <script src="/Scripts/typedMVVM/viewModels/ViewModelBase.js"></script>
+    <script src="/ViewModels/ViewModelFactory.js"></script>
+
+    <!-- Services -->
+    <script src="/Services/DataService.js"></script>
+    <script src="Scripts/BindingInitializer.js"></script>
+
+    <!-- Converters -->
+    <script src="/Models/Converters.js"></script>
+
+    <!-- Design-time data -->
+   <!-- <script src="/designData/services/SampleService.js"></script>-->
+
+    <link href="/app.css" rel="stylesheet" />
+    <script src="/Scripts/default.js" ></script>
+   
+    <script src="/Scripts/oldnavigator.js"></script>   
+
+    <!-- TypedMVVM.Samples references -->
+    <!--<script src="app.js"></script>-->
+    
+
+</head>
+<body>
+    <div class="splitView" data-win-control="WinJS.UI.SplitView">
+        <!-- Pane area -->
+        <div>
+            <div class="header">
+                <button class="win-splitviewpanetoggle"
+                        data-win-control="WinJS.UI.SplitViewPaneToggle"
+                        data-win-options="{ splitView: select('.splitView') }"></button>
+                <div class="title">McPhersonApps</div>
+            </div>
+
+            <div class="nav-commands">
+                <div data-win-control="WinJS.UI.SplitViewCommand" 
+                     id="homeNavButton"
+                     data-win-bind="onclick: navItemCommandBind"
+                     data-win-options="{ label: 'Home', icon: 'home'}"></div>
+                <div data-win-control="WinJS.UI.SplitViewCommand"
+                     id="appListNavButton"
+                     data-win-options="{ label: 'App List', icon: 'browsephotos'}"
+                     data-win-bind="onclick: navItemCommandBind"></div>
+                <div data-win-control="WinJS.UI.SplitViewCommand"
+                     id="blogNavButton"
+                     data-win-bind="onclick: navItemCommandBind"
+                     data-win-options="{ label: 'Settings', icon: 'settings'}"></div>
+                <!--<div data-win-control="WinJS.UI.SplitViewCommand" 
+                     id="settingsNavButton"
+                     data-win-bind="onclick: navItemCommandBind"
+                     data-win-options="{ label: 'Settings', icon: 'settings'}"></div>-->
+                <div data-win-control="WinJS.UI.SplitViewCommand"
+                     id="aboutNavButton"
+                     data-win-bind="onclick: navItemCommandBind"
+                     data-win-options="{ label: 'About', icon: 'contact'}"></div>
+            </div>
+        </div>
+
+        <!-- Content area -->
+        <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: 'Views/Main/MainView.html'}"></div>
+
+    </div>
+
+    <div data-win-control="WinJS.UI.ContentDialog" class="win-contentdialog" data-win-options="{
+            title: 'Main instruction',
+            primaryCommandText: 'button1',
+            secondaryCommandText: 'button2'
+           }">
+        Use the content area to present additional information helpful to understanding or using the dialog.
+        You can use this area to provide more detail or define terminology. Don't repeat the main instruction
+        with slightly different wording.
+    </div>
+
+</body>
+</html>
+
+

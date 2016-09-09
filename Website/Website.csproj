@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{285AF1C3-EF9C-40B5-B671-22225A8DE46F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.css" />
+    <Content Include="Assets\me.jpg" />
+    <Content Include="index.html" />
+    <Content Include="Scripts\oldnavigator.js" />
+    <Content Include="Scripts\unsemantic.css" />
+    <Content Include="Views\About\AboutView.css" />
+    <Content Include="Views\About\AboutView.html" />
+    <Content Include="Views\AppList\AppListView.css" />
+    <Content Include="Views\AppList\AppListView.html" />
+    <Content Include="Views\Blog\BlogView.css" />
+    <Content Include="Views\Blog\BlogView.html" />
+    <Content Include="Views\Main\MainView.css" />
+    <Content Include="Views\Main\MainView.html" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WinJS\css\ui-dark.css" />
+    <Content Include="WinJS\css\ui-darkOLD.css" />
+    <Content Include="WinJS\css\ui-dark.min.css" />
+    <Content Include="WinJS\css\ui-light.css" />
+    <Content Include="WinJS\css\ui-light.min.css" />
+    <Content Include="WinJS\js\base.js" />
+    <Content Include="WinJS\js\baseOLD.js" />
+    <Content Include="WinJS\js\base.min.js" />
+    <Content Include="WinJS\js\en-US\ui.strings.js" />
+    <Content Include="WinJS\js\ui.js" />
+    <Content Include="WinJS\js\uiOLD.js" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Models\AppItemModel.ts" />
+    <TypeScriptCompile Include="Models\Converters.ts" />
+    <TypeScriptCompile Include="Models\SampleListViewItemModel.ts" />
+    <TypeScriptCompile Include="Models\TumblrModels.ts" />
+    <TypeScriptCompile Include="Scripts\BindingInitializer.ts" />
+    <TypeScriptCompile Include="Scripts\default.ts" />
+    <TypeScriptCompile Include="Scripts\navigator.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\commands\ICommand.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\commands\RelayCommand.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\include\typedMVVM.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\include\win.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\IoC\Container.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\services\DialogService.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\services\IDialogService.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\utils\Helpers.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\viewModels\IViewModelBase.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\viewModels\ViewModelBase.ts" />
+    <TypeScriptCompile Include="Scripts\typedMVVM\views\ICoreView.ts" />
+    <TypeScriptCompile Include="Scripts\typings\lib.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\winjs.d.ts" />
+    <TypeScriptCompile Include="Services\DataService.ts" />
+    <TypeScriptCompile Include="Services\IDataService.ts" />
+    <TypeScriptCompile Include="ViewModels\AboutViewModel.ts" />
+    <TypeScriptCompile Include="ViewModels\AppListViewModel.ts" />
+    <TypeScriptCompile Include="ViewModels\BlogViewModel.ts" />
+    <TypeScriptCompile Include="ViewModels\MainViewModel.ts" />
+    <TypeScriptCompile Include="ViewModels\ViewModelFactory.ts" />
+    <TypeScriptCompile Include="Views\About\AboutView.ts" />
+    <TypeScriptCompile Include="Views\AppList\AppListView.ts" />
+    <TypeScriptCompile Include="Views\Blog\BlogTemplateSelector.ts" />
+    <TypeScriptCompile Include="Views\Blog\BlogView.ts" />
+    <TypeScriptCompile Include="Views\Main\MainView.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <Content Include="WinJS\js\ui.min.js" />
+    <Content Include="WinJS\js\ui.min.js.map" />
+    <Content Include="WinJS\js\base.min.js.map" />
+    <Content Include="WinJS\fonts\Symbols.ttf" />
+    <None Include="WinJS\js\WinJS.intellisense.js" />
+    <Content Include="WinJS\js\WinJS.intellisense-setup.js" />
+    <Content Include="WinJS\License.txt" />
+    <Content Include="WinJS\README.md" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Website</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2299</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2299/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

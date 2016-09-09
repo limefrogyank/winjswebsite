@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>AppList</title>
+
+    <!--<link href="/app.css" rel="stylesheet" />-->
+    <link href="/Views/AppList/AppListView.css" rel="stylesheet" />
+    <script src="/Models/AppItemModel.js"></script>
+    <script src="/ViewModels/AppListViewModel.js"></script>
+    <script src="/Views/AppList/AppListView.js"></script>
+</head>
+<body>
+    <div id="appListDataTemplate" data-win-control="WinJS.Binding.Template">
+        <div class="appListContainer">
+            <div class="floatLeft appImageIconContainer" data-win-bind="style.backgroundColor: backgroundColor">
+                <img data-win-bind="src: iconImage" class="appImageIcon" />
+                <div data-win-bind="innerText: title" class="overlayText"></div>
+            </div>
+            <div class="floatRight">
+                <div class="noFloat rightJustified">
+                    <div data-win-bind="innerText: price Converters.priceToFreeConverter"></div>
+                    <div data-win-control="WinJS.UI.Rating"
+                         class="win-small"
+                         data-win-options="{disabled: true}"
+                         data-win-bind="winControl.averageRating: rating"></div>
+                    <div><span>Reviews: </span><span data-win-bind="innerText: reviewsCount"></span></div>
+                    <p></p>
+                    <div>Release Date:</div>
+                    <div data-win-bind="innerText: releaseDate Converters.plainDateConverter"></div>
+                </div>
+            </div>
+            <!--<button class="win-interactive win-button" data-win-bind="onclick:buttonClickCommandBind; innerText: title"></button>-->
+
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="headerFooterPlaceholder">
+            <div class="header">
+                <h2 class="win-h2">Apps &amp; Games List</h2>
+                <p>Below you'll find a list of the apps and games I have published that exist in the Windows Store</p>
+            </div>
+
+            <div class="footer">
+                <!--<h2 class="win-h2">ListView Footer</h2>-->
+                <p>Click on the app to visit the app's store page.</p>
+            </div>
+        </div>
+
+        <div id="applistView"
+             data-win-control="WinJS.UI.ListView"
+             data-win-bind="winControl.itemDataSource: dataContext.itemsSource.dataSource; winControl.oniteminvoked: listItemInvokedBind"
+             data-win-options="{itemTemplate: select('#appListDataTemplate'),
+                                layout: {type: WinJS.UI.GridLayout, orientation: WinJS.UI.Orientation.vertical },
+                                header: select('.header'),
+                                footer: select('.footer')
+                                }">
+        </div>
+    </div>
+</body>
+</html>
+

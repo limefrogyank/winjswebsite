@@ -1,0 +1,43 @@
+﻿
+/*﻿.homepage section[role=main] {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+*/
+
+.fullscreenOutput #content {
+    height: 100%;
+    margin-top: 0;
+}
+
+#listView
+{
+    height: 100%;
+}
+
+.list-item-container {
+    width: auto;
+    /*height: 200px;*/
+}
+
+
+#content
+{
+    /*overflow: hidden;*/
+    height: 100%; /*calc(100% - 43px); */ /* 43px affected by nav button's total height */
+}
+ 
+/*.contenttext {
+    margin-left: 20px;
+    margin-top: 6px;
+}*/
+.smallListIconTextItem
+{
+    width: 242px;
+    height: 70px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}

@@ -1,0 +1,33 @@
+﻿body {
+}
+
+.photoTemplateClass{
+    height:auto;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.textTemplateClass{
+    height:auto;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#bloglistView{
+    height:100%;
+}
+
+.win-listview .win-listlayout .win-container { 
+    height:auto; 
+}
+
+.photoTemplateClass{
+
+}
+
+.photoTemplateClass p{
+    text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}

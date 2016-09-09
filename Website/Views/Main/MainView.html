@@ -1,0 +1,56 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!--<link href="/app.css" rel="stylesheet" />-->
+    <link href="/Views/Main/MainView.css" rel="stylesheet" />
+    <script src="/Models/SampleListViewItemModel.js"></script>
+    <script src="/ViewModels/MainViewModel.js"></script>
+    <script src="/Views/Main/MainView.js"></script>
+</head>
+<body>
+    <div class="testTemplate" data-win-control="WinJS.Binding.Template" style="display:none">
+        <div class="smallListIconTextItem">
+            <div data-win-bind="innerText: title"></div>
+            <button class="win-interactive win-button" data-win-bind="onclick: buttonClickCommandBind; innerText: title"></button>
+        </div>
+    </div>
+
+    <div id="content">
+
+        <!-- The content that will be loaded and displayed. -->
+        <!--<div>
+            <button class="win-button">
+                Testing!
+            </button>
+
+            <div>
+                <h1 class="titlearea win-type-ellipsis">
+                    <span class="pagetitle" data-win-bind="textContent: dataContext.pageTitle"></span>
+                </h1>
+            </div>
+            <div>
+                <p>
+                    <span data-win-bind="textContent: dataContext.sampleText"></span>
+                </p>
+                <p>
+                    <button class="win-button home-button" data-win-bind="onclick:showMessageDialogCommandBind; textContent: dataContext.commandButtonText"></button>
+                </p>
+                <p>
+                    <div class="list-items-title">Sample list items:</div>-->
+        <div id="listView"
+             data-win-control="WinJS.UI.ListView"
+             data-win-bind="winControl.itemDataSource: dataContext.itemsSource; winControl.oniteminvoked: listItemInvokedBind"
+             data-win-options="{itemTemplate: select('.testTemplate') }">
+        </div>
+        <!--</p>
+
+            </div>
+
+        </div>-->
+    </div>
+</body>
+</html>
+

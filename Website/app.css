@@ -1,0 +1,58 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #131726;
+}
+
+.win-splitview {
+    position:absolute;
+    top:0px;
+}
+
+   .win-splitviewpanetoggle {
+        float: left;
+    }
+
+     /*SplitView pane content style*/
+    .header {
+        white-space: nowrap;
+        height:46px;
+    }
+
+    .title {
+        margin-top:5px;
+        font-size: 25px;
+        left: 50px;
+        vertical-align: middle;
+        display: inline-block;
+        height:46px;
+    }
+
+    .nav-commands {
+        margin-top: 20px;
+    }
+
+.win-navbarcommand-button {
+    background-color: transparent;
+}
+
+.win-splitview-pane-hidden .win-navbarcommand-button {
+    width: 46px;
+}
+
+.win-splitview-pane-hidden .win-navbarcommand-label {
+    /* Workaround: Make sure pane doesn't scroll if ContentDialog restores focus to
+       NavBarCommand's label
+    */
+    visibility: hidden;
+}
+
+/*SplitView content style*/
+.win-splitview-content {
+    background-color: rgb(112,112,112);
+}
+
+/* needed so items don't stretch to full viewport size on chrome and partly on ie11 */
+.win-listview .win-itembox, .win-itemcontainer .win-itembox{
+    height:auto;
+}
+
