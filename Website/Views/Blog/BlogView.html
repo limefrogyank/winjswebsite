@@ -14,15 +14,17 @@
 <body>
     <div id="textTemplate" data-win-control="WinJS.Binding.Template" style="display:none">
         <div class="textTemplateClass">
-            <h5 data-win-bind="innerText: date Converters.readableDate"></h5>
-            <h1 data-win-bind="innerText: title"></h1>
+            <h5 data-win-bind="innerText: date Converters.readableDate" class="secondaryText"></h5>
+            <h1  data-win-bind="innerText: title" class="primaryText"></h1>
+            <hr class="dividerColor" />
             <div class="bodyContent" data-win-bind="innerHTML: body BindingInitializers.setInnerHTML"></div>
             <!--<button class="win-interactive win-button" data-win-bind="onclick: buttonClickCommandBind; innerText: title"></button>-->
         </div>
     </div>
     <div id="photoTemplate" data-win-control="WinJS.Binding.Template" style="display:none">
         <div class="photoTemplateClass">
-            <h5 data-win-bind="innerText: date Converters.readableDate"></h5>
+            <h5 data-win-bind="innerText: date Converters.readableDate" class="secondaryText"></h5>
+            <hr class="dividerColor"/>
             <p>
                 <img data-win-bind="src: photos Converters.firstPhotoUrl" />
             </p>

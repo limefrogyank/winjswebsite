@@ -54,7 +54,7 @@ var McPhersonApps;
                 configurable: true
             });
             return ViewModelFactory;
-        })();
+        }());
         ViewModels.ViewModelFactory = ViewModelFactory;
     })(ViewModels = McPhersonApps.ViewModels || (McPhersonApps.ViewModels = {}));
 })(McPhersonApps || (McPhersonApps = {}));

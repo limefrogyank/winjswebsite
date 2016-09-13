@@ -163,7 +163,7 @@ var Application;
             //this._lastViewState = Windows.UI.ViewManagement.ApplicationView.value;
         };
         return PageControlNavigator;
-    })();
+    }());
     Application.PageControlNavigator = PageControlNavigator;
     WinJS.Utilities.markSupportedForProcessing(PageControlNavigator);
 })(Application || (Application = {}));

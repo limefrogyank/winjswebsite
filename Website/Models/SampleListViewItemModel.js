@@ -12,7 +12,7 @@ var McPhersonApps;
                 }).bind(this));
             }
             return SampleListViewItemModel;
-        })();
+        }());
         Models.SampleListViewItemModel = SampleListViewItemModel;
     })(Models = McPhersonApps.Models || (McPhersonApps.Models = {}));
 })(McPhersonApps || (McPhersonApps = {}));

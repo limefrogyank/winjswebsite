@@ -25,7 +25,7 @@ var TypedMVVM;
                 //Dictionary containing object instances
                 Container.instances = {};
                 return Container;
-            })();
+            }());
             IoC.Container = Container;
         })(IoC = Common.IoC || (Common.IoC = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));

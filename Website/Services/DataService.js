@@ -34,7 +34,7 @@ var McPhersonApps;
                 });
             };
             return DataService;
-        })();
+        }());
         Services.DataService = DataService;
     })(Services = McPhersonApps.Services || (McPhersonApps.Services = {}));
 })(McPhersonApps || (McPhersonApps = {}));

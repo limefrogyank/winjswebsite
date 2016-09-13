@@ -20,7 +20,7 @@ var McPhersonApps;
                 };
             }
             return AppListView;
-        })();
+        }());
         WinJS.UI.Pages.define("/Views/AppList/AppListView.html", new AppListView());
     })(Views = McPhersonApps.Views || (McPhersonApps.Views = {}));
 })(McPhersonApps || (McPhersonApps = {}));

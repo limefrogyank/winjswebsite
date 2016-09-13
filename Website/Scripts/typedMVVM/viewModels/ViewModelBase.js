@@ -27,7 +27,7 @@ var TypedMVVM;
                     }
                 };
                 return ViewModelBase;
-            })();
+            }());
             ViewModels.ViewModelBase = ViewModelBase;
         })(ViewModels = Common.ViewModels || (Common.ViewModels = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));

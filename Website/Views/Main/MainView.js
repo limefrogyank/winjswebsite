@@ -18,7 +18,7 @@ var McPhersonApps;
                 };
             }
             return MainView;
-        })();
+        }());
         WinJS.UI.Pages.define("/Views/Main/MainView.html", new MainView());
     })(Views = McPhersonApps.Views || (McPhersonApps.Views = {}));
 })(McPhersonApps || (McPhersonApps = {}));
