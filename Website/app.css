@@ -10,8 +10,8 @@
 }
 
 .win-splitview-pane{
-    color: #f7c3ad;
-    background-color:#2e5cab;
+    color: #e4f1fe;
+    background-color:#22313f;
 }
 
    .win-splitviewpanetoggle {
@@ -55,7 +55,7 @@
 
 /*SplitView content style*/
 .win-splitview-content {
-    background-color: #2e5056;
+    background-color: #3a539b;
 }
 
 /* needed so items don't stretch to full viewport size on chrome and partly on ie11 */
@@ -64,15 +64,15 @@
 }
 
 .win-splitviewcommand-button{
-    color: #f7c3ad;
+    color: #e4f1fe;
 }
 
 .win-listview .win-itembox{
-    background-color:#9298ab;
+    background-color:#89cff4;
 }
 
 .textIcons{
-    color:#f7c3ad;
+    color:#e4f1fe;
 }
 
 .primaryText{
