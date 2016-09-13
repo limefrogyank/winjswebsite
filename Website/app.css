@@ -6,6 +6,12 @@
 .win-splitview {
     position:absolute;
     top:0px;
+
+}
+
+.win-splitview-pane{
+    color: #e8de7d;
+    background-color:#0c52ff;
 }
 
    .win-splitviewpanetoggle {
@@ -46,9 +52,10 @@
     visibility: hidden;
 }
 
+
 /*SplitView content style*/
 .win-splitview-content {
-    background-color: rgb(112,112,112);
+    background-color: #75e8d3;
 }
 
 /* needed so items don't stretch to full viewport size on chrome and partly on ie11 */
@@ -56,3 +63,6 @@
     height:auto;
 }
 
+.win-splitviewcommand-button{
+    color: #e8de7d;
+}
