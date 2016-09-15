@@ -5,7 +5,9 @@ module McPhersonApps.Services {
     export class DataService implements Interfaces.IDataService {
 
         private _blogNameUrl: string = 'limefrogyank';
-        private _apiKey: string = 'cG4xt0ZKtZSzWwL2Vc5EmInJUT0cV9R35tU6WYkLwDFw54gLUH';
+        private _tumblrApiKey: string = 'cG4xt0ZKtZSzWwL2Vc5EmInJUT0cV9R35tU6WYkLwDFw54gLUH';
+
+        private _wordpressUrl: string = 'mcphersonapps.wordpress.com';
 
         getTitle() { return "Welcome to TypedMVVM"; }
         getContent() { return "Sample property from the ViewModel"; }
@@ -26,7 +28,7 @@ module McPhersonApps.Services {
 
         
         getRecentBlogPosts(): WinJS.Promise<Models.Tumblr.CustomPost[]> {
-            var url = "https://api.tumblr.com/v2/blog/" + this._blogNameUrl + "/posts?api_key=" + this._apiKey;
+            var url = "https://api.tumblr.com/v2/blog/" + this._blogNameUrl + "/posts?api_key=" + this._tumblrApiKey;
 
             return WinJS.xhr({
                 url: url
@@ -38,6 +40,36 @@ module McPhersonApps.Services {
                 return null;
             });
 
+        }
+
+        getRecentWordPressPosts(): WinJS.Promise<Models.WordPress.Post[]> {
+
+            var url = "https://public-api.wordpress.com/rest/v1.1/sites/" + this._wordpressUrl + "/posts";
+
+            return WinJS.xhr({
+                url: url
+            }).then((success) => {
+                var response: Models.WordPress.GetPostsResponseRoot = <Models.WordPress.GetPostsResponseRoot>JSON.parse(success.response);
+                return response.posts;
+            }, (error) => {
+                var i = 3;
+                return null;
+            });
+        }
+
+        getRepliesWordPressPost(id: number): WinJS.Promise<Models.WordPress.Comment[]> {
+
+            var url = "https://public-api.wordpress.com/rest/v1.1/sites/" + this._wordpressUrl+ "/posts/"+ id + "/replies";
+
+            return WinJS.xhr({
+                url: url
+            }).then((success) => {
+                var response: Models.WordPress.GetRepliesRootObject = <Models.WordPress.GetRepliesRootObject>JSON.parse(success.response);
+                return response.comments;
+            }, (error) => {
+                var i = 3;
+                return null;
+            });
         }
     }
 }

@@ -60,6 +60,7 @@
     <TypeScriptCompile Include="Models\Converters.ts" />
     <TypeScriptCompile Include="Models\SampleListViewItemModel.ts" />
     <TypeScriptCompile Include="Models\TumblrModels.ts" />
+    <TypeScriptCompile Include="Models\WordPressModels.ts" />
     <TypeScriptCompile Include="Scripts\BindingInitializer.ts" />
     <TypeScriptCompile Include="Scripts\default.ts" />
     <TypeScriptCompile Include="Scripts\navigator.ts" />

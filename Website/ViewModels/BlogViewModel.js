@@ -53,7 +53,10 @@ var McPhersonApps;
                 this.pageTitle = this._dataService.getTitle();
                 this.sampleText = this._dataService.getContent();
                 this.commandButtonText = this._dataService.getCommandButtonText();
-                this._dataService.getRecentBlogPosts().then(function (posts) {
+                //this._dataService.getRecentBlogPosts().then((posts) => {
+                //    this.itemsSource = new WinJS.Binding.List<Models.Tumblr.CustomPost>(posts);
+                //});
+                this._dataService.getRecentWordPressPosts().then(function (posts) {
                     _this.itemsSource = new WinJS.Binding.List(posts);
                 });
             };

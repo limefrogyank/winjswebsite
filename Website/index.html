@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="expires" content="0"/>
     <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self' 'unsafe-eval' https://api.tumblr.com; style-src 'self' 'unsafe-inline'; img-src * http://cdn.marketplaceimages.windowsphone.com; connect-src 'self' https://api.tumblr.com;">
+          content="default-src 'self' 'unsafe-eval' https://api.tumblr.com https://public-api.wordpress.com; style-src 'self' 'unsafe-inline'; img-src * http://cdn.marketplaceimages.windowsphone.com; connect-src 'self' https://api.tumblr.com https://public-api.wordpress.com;">
 
     <link href="/WinJS/css/ui-light.css" rel="stylesheet" />
     <link href="Scripts/unsemantic.css" rel="stylesheet" />
@@ -52,6 +52,7 @@
         <div>
             <div class="header">
                 <button class="win-splitviewpanetoggle"
+                        id="hamburgerButton"
                         data-win-control="WinJS.UI.SplitViewPaneToggle"
                         data-win-options="{ splitView: select('.splitView') }"></button>
                 <div class="title">McPhersonApps</div>

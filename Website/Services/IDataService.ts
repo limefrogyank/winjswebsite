@@ -9,6 +9,10 @@
         
         getRecentBlogPosts(): WinJS.Promise<Models.Tumblr.CustomPost[]>;
 
+        getRecentWordPressPosts(): WinJS.Promise<Models.WordPress.Post[]>;
+
+        getRepliesWordPressPost(id: number): WinJS.Promise<Models.WordPress.Comment[]>;
+
     }
 }
 

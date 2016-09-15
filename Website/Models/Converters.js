@@ -13,5 +13,17 @@ WinJS.Namespace.define("Converters", {
         var readableDate = new Date(Date.parse(dateString)).toLocaleDateString();
         return readableDate;
     }),
+    commentCountConverter: WinJS.Binding.converter(function (count) {
+        if (count > 0)
+            return "Get Comments (" + count + ")";
+        else
+            return "No Comments";
+    }),
+    commentCountDisableConverter: WinJS.Binding.converter(function (count) {
+        if (count > 0)
+            return false;
+        else
+            return true;
+    }),
 });
 //# sourceMappingURL=Converters.js.map

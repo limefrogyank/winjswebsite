@@ -23,6 +23,7 @@ body {
 }
 
    .win-splitviewpanetoggle {
+       
         float: left;
     }
 
@@ -80,6 +81,10 @@ body {
     background-color:#6983ff;
 }
 
+#hamburgerButton{
+    color:#ffffff;
+}
+
 .textIcons{
     color:#ffffff;
 }
@@ -90,6 +95,14 @@ body {
 
 .secondaryText{
     color: #506eff;
+}
+
+.whiteBackground{
+    background-color: #ffffff;
+}
+
+.lightBackground{
+    background-color: #ffefbe;
 }
 
 .lightPrimaryColor{

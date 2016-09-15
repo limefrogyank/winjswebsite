@@ -16,7 +16,7 @@ module McPhersonApps.ViewModels {
         private _navItemCommand: TypedMVVM.Common.Commands.ICommand<string>;
 
         private _showMessageDialogCommand: TypedMVVM.Common.Commands.ICommand<string>;
-        private _itemsSource: WinJS.Binding.ListBase<Models.Tumblr.CustomPost>
+        private _itemsSource: WinJS.Binding.ListBase<Models.WordPress.Post>
       
         // Default constructor
         constructor(dataService: Interfaces.IDataService) {
@@ -74,9 +74,14 @@ module McPhersonApps.ViewModels {
             this.sampleText = this._dataService.getContent();
             this.commandButtonText = this._dataService.getCommandButtonText();
 
-            this._dataService.getRecentBlogPosts().then((posts) => {
-                this.itemsSource = new WinJS.Binding.List<Models.Tumblr.CustomPost>(posts);
+            //this._dataService.getRecentBlogPosts().then((posts) => {
+            //    this.itemsSource = new WinJS.Binding.List<Models.Tumblr.CustomPost>(posts);
                 
+            //});
+
+            this._dataService.getRecentWordPressPosts().then((posts) => {
+                this.itemsSource = new WinJS.Binding.List<Models.WordPress.Post>(posts);
+
             });
         }
 
@@ -104,8 +109,8 @@ module McPhersonApps.ViewModels {
         }
 
         // Gets or sets a value for the "sampleText" property
-        public get itemsSource(): WinJS.Binding.ListBase<Models.Tumblr.CustomPost> { return this._itemsSource; }
-        public set itemsSource(value: WinJS.Binding.ListBase<Models.Tumblr.CustomPost>) {
+        public get itemsSource(): WinJS.Binding.ListBase<Models.WordPress.Post> { return this._itemsSource; }
+        public set itemsSource(value: WinJS.Binding.ListBase<Models.WordPress.Post>) {
             this._itemsSource = value;
             this.raisePropertyChanged("itemsSource", value);
         }

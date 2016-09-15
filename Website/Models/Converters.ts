@@ -19,4 +19,18 @@ WinJS.Namespace.define("Converters", {
         return readableDate;
     }),
 
+    commentCountConverter: WinJS.Binding.converter((count:number) => {
+        if (count > 0)
+            return "Get Comments (" + count + ")";
+        else
+            return "No Comments";
+    }),
+
+    commentCountDisableConverter: WinJS.Binding.converter((count: number) => {
+        if (count > 0)
+            return false;
+        else
+            return true;
+    }),
+
 });
