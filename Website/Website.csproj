@@ -90,6 +90,7 @@
     <TypeScriptCompile Include="Views\Main\MainView.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Fonts\selawk.ttf" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

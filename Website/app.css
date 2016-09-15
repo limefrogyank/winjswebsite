@@ -1,5 +1,13 @@
-﻿body {
-    font-family: 'Segoe UI', sans-serif;
+﻿@font-face {
+
+    font-family: 'Selawik';
+    src: url('http://localhost:2299/Fonts/selawk.ttf');
+
+}
+
+body {
+    /*font-family: 'Segoe UI', sans-serif;*/
+    font-family: Selawik;
     background-color: #131726;
 }
 
@@ -10,8 +18,8 @@
 }
 
 .win-splitview-pane{
-    color: #e4f1fe;
-    background-color:#22313f;
+    color: #ffffff;
+    background-color:#263eb2;
 }
 
    .win-splitviewpanetoggle {
@@ -55,7 +63,8 @@
 
 /*SplitView content style*/
 .win-splitview-content {
-    background-color: #3a539b;
+    background-color: #ffefbe;
+    background: linear-gradient(#ffefbe, #ffffee);
 }
 
 /* needed so items don't stretch to full viewport size on chrome and partly on ie11 */
@@ -64,23 +73,23 @@
 }
 
 .win-splitviewcommand-button{
-    color: #e4f1fe;
+    color: #ffffff;
 }
 
 .win-listview .win-itembox{
-    background-color:#89cff4;
+    background-color:#6983ff;
 }
 
 .textIcons{
-    color:#e4f1fe;
+    color:#ffffff;
 }
 
 .primaryText{
-    color:#212121;
+    color:#000000;
 }
 
 .secondaryText{
-    color: #757575;
+    color: #506eff;
 }
 
 .lightPrimaryColor{
@@ -96,11 +105,11 @@
 }
 
 .accentColor{
-    background-color: #ff5722;
+    background-color: #c29b25;
 }
 
 .dividerColor{
-    border-color:#bdbdbd;
-    color:#bdbdbd;
-    background-color:#bdbdbd;
+    border-color:#6983ff;
+    color:#6983ff;
+    background-color:#6983ff;
 }
