@@ -79,6 +79,8 @@
     <TypeScriptCompile Include="Scripts\typings\winjs.d.ts" />
     <TypeScriptCompile Include="Services\DataService.ts" />
     <TypeScriptCompile Include="Services\IDataService.ts" />
+    <TypeScriptCompile Include="Services\IUIService.ts" />
+    <TypeScriptCompile Include="Services\UIService.ts" />
     <TypeScriptCompile Include="ViewModels\AboutViewModel.ts" />
     <TypeScriptCompile Include="ViewModels\AppListViewModel.ts" />
     <TypeScriptCompile Include="ViewModels\BlogViewModel.ts" />

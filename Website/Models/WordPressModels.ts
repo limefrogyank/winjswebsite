@@ -5,14 +5,16 @@
         constructor(post: Post) {
             this.post = post;
             this._dataService = TypedMVVM.Common.IoC.Container.resolve(Services.DataService);
+            this._uiService = TypedMVVM.Common.IoC.Container.resolve(Services.UIService);
             this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
                 this._dataService.getRepliesWordPressPost(this.post.iD).then((comments) => {
-
+                    this._uiService.showReplies({ replies: comments }, ev.srcElement);
                 });
             }).bind(this));
         }
 
         private _dataService: Interfaces.IDataService;
+        private _uiService: Interfaces.IUIService;
 
         buttonClickCommandBind: any;
         post: Post;

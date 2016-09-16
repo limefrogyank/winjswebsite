@@ -9,8 +9,10 @@ var McPhersonApps;
                     var _this = this;
                     this.post = post;
                     this._dataService = TypedMVVM.Common.IoC.Container.resolve(McPhersonApps.Services.DataService);
+                    this._uiService = TypedMVVM.Common.IoC.Container.resolve(McPhersonApps.Services.UIService);
                     this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {
                         _this._dataService.getRepliesWordPressPost(_this.post.iD).then(function (comments) {
+                            _this._uiService.showReplies({ replies: comments }, ev.srcElement);
                         });
                     }).bind(this));
                 }
