@@ -6,9 +6,12 @@ var McPhersonApps;
         (function (WordPress) {
             var PostModel = (function () {
                 function PostModel(post) {
+                    var _this = this;
                     this.post = post;
-                    this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function () {
-                        var i = 3;
+                    this._dataService = TypedMVVM.Common.IoC.Container.resolve(McPhersonApps.Services.DataService);
+                    this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {
+                        _this._dataService.getRepliesWordPressPost(_this.post.iD).then(function (comments) {
+                        });
                     }).bind(this));
                 }
                 return PostModel;

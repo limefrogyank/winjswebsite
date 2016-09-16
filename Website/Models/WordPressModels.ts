@@ -4,10 +4,15 @@
         
         constructor(post: Post) {
             this.post = post;
-            this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((() => {
-                var i = 3;
+            this._dataService = TypedMVVM.Common.IoC.Container.resolve(Services.DataService);
+            this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
+                this._dataService.getRepliesWordPressPost(this.post.iD).then((comments) => {
+
+                });
             }).bind(this));
         }
+
+        private _dataService: Interfaces.IDataService;
 
         buttonClickCommandBind: any;
         post: Post;
