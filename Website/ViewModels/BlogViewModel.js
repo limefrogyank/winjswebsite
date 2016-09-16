@@ -27,7 +27,7 @@ var McPhersonApps;
                 this.showMessageDialogCommandBind = WinJS.Utilities.markSupportedForProcessing((function () {
                     _this._showMessageDialogCommand.execute("You have just executed a TypedMVVM Command");
                 }).bind(this));
-                this.listItemInvokedBind = WinJS.Utilities.markSupportedForProcessing((function () {
+                this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {
                     _this._showMessageDialogCommand.execute("ListView Item invoked");
                 }).bind(this));
             };
@@ -101,7 +101,7 @@ var McPhersonApps;
                 configurable: true
             });
             return BlogViewModel;
-        }(TypedMVVM.Common.ViewModels.ViewModelBase));
+        })(TypedMVVM.Common.ViewModels.ViewModelBase);
         ViewModels.BlogViewModel = BlogViewModel;
     })(ViewModels = McPhersonApps.ViewModels || (McPhersonApps.ViewModels = {}));
 })(McPhersonApps || (McPhersonApps = {}));

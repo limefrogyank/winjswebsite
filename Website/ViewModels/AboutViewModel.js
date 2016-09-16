@@ -98,7 +98,7 @@ var McPhersonApps;
                 configurable: true
             });
             return AboutViewModel;
-        }(TypedMVVM.Common.ViewModels.ViewModelBase));
+        })(TypedMVVM.Common.ViewModels.ViewModelBase);
         ViewModels.AboutViewModel = AboutViewModel;
     })(ViewModels = McPhersonApps.ViewModels || (McPhersonApps.ViewModels = {}));
 })(McPhersonApps || (McPhersonApps = {}));

@@ -5,7 +5,7 @@ var McPhersonApps;
         function NavigationStateOptions() {
         }
         return NavigationStateOptions;
-    }());
+    })();
     McPhersonApps.NavigationStateOptions = NavigationStateOptions;
     //export var currentApp: Windows.ApplicationModel.Store.CurrentAppSimulator;
     //export var currentApp: Windows.ApplicationModel.Store.CurrentApp;

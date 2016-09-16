@@ -1,5 +1,18 @@
 ﻿module McPhersonApps.Models.WordPress {
 
+    export class PostModel {
+        
+        constructor(post: Post) {
+            this.post = post;
+            this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((() => {
+                var i = 3;
+            }).bind(this));
+        }
+
+        buttonClickCommandBind: any;
+        post: Post;
+    }
+
     export interface Author {
         iD: number;
         login: string;

@@ -42,7 +42,7 @@ module McPhersonApps.Services {
 
         }
 
-        getRecentWordPressPosts(): WinJS.Promise<Models.WordPress.Post[]> {
+        getRecentWordPressPosts(): WinJS.Promise<Models.WordPress.PostModel[]> {
 
             var url = "https://public-api.wordpress.com/rest/v1.1/sites/" + this._wordpressUrl + "/posts";
 
@@ -50,7 +50,11 @@ module McPhersonApps.Services {
                 url: url
             }).then((success) => {
                 var response: Models.WordPress.GetPostsResponseRoot = <Models.WordPress.GetPostsResponseRoot>JSON.parse(success.response);
-                return response.posts;
+                var postModels: Models.WordPress.PostModel[] = [];
+                response.posts.forEach((v, i, a) => {
+                    postModels.push(new Models.WordPress.PostModel(v));
+                });
+                return postModels;
             }, (error) => {
                 var i = 3;
                 return null;

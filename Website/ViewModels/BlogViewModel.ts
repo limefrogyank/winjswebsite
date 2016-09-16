@@ -16,7 +16,7 @@ module McPhersonApps.ViewModels {
         private _navItemCommand: TypedMVVM.Common.Commands.ICommand<string>;
 
         private _showMessageDialogCommand: TypedMVVM.Common.Commands.ICommand<string>;
-        private _itemsSource: WinJS.Binding.ListBase<Models.WordPress.Post>
+        private _itemsSource: WinJS.Binding.ListBase<Models.WordPress.PostModel>
       
         // Default constructor
         constructor(dataService: Interfaces.IDataService) {
@@ -31,7 +31,7 @@ module McPhersonApps.ViewModels {
 
 
         // Sample property wrapping a command executed when ListView oniteminvoked is raised
-        public listItemInvokedBind: any;
+        public buttonClickCommandBind: any;
 
         // Gets or sets a value for the "showMessageDialogCommandBind" property: helper for enabling Data Binding
         public showMessageDialogCommandBind: any;
@@ -46,7 +46,7 @@ module McPhersonApps.ViewModels {
                 this._showMessageDialogCommand.execute("You have just executed a TypedMVVM Command");
             }).bind(this));
 
-            this.listItemInvokedBind = WinJS.Utilities.markSupportedForProcessing((() => {
+            this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
                 this._showMessageDialogCommand.execute("ListView Item invoked");
             }).bind(this));
         }
@@ -80,7 +80,7 @@ module McPhersonApps.ViewModels {
             //});
 
             this._dataService.getRecentWordPressPosts().then((posts) => {
-                this.itemsSource = new WinJS.Binding.List<Models.WordPress.Post>(posts);
+                this.itemsSource = new WinJS.Binding.List<Models.WordPress.PostModel>(posts);
 
             });
         }
@@ -109,8 +109,8 @@ module McPhersonApps.ViewModels {
         }
 
         // Gets or sets a value for the "sampleText" property
-        public get itemsSource(): WinJS.Binding.ListBase<Models.WordPress.Post> { return this._itemsSource; }
-        public set itemsSource(value: WinJS.Binding.ListBase<Models.WordPress.Post>) {
+        public get itemsSource(): WinJS.Binding.ListBase<Models.WordPress.PostModel> { return this._itemsSource; }
+        public set itemsSource(value: WinJS.Binding.ListBase<Models.WordPress.PostModel>) {
             this._itemsSource = value;
             this.raisePropertyChanged("itemsSource", value);
         }

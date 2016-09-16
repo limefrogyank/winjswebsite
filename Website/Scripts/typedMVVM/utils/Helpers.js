@@ -14,7 +14,7 @@ var TypedMVVM;
                     return (results && results.length > 1) ? results[1] : "";
                 };
                 return Helpers;
-            }());
+            })();
             Utils.Helpers = Helpers;
         })(Utils = Common.Utils || (Common.Utils = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));

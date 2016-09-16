@@ -30,7 +30,7 @@ var TypedMVVM;
                     return false;
                 };
                 return RelayCommand;
-            }());
+            })();
             Commands.RelayCommand = RelayCommand;
         })(Commands = Common.Commands || (Common.Commands = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));

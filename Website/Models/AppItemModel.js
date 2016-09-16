@@ -19,7 +19,7 @@ var McPhersonApps;
                 this.lastUpdated = new Date(lastUpdatedString);
             }
             return AppItemModel;
-        }());
+        })();
         Models.AppItemModel = AppItemModel;
     })(Models = McPhersonApps.Models || (McPhersonApps.Models = {}));
 })(McPhersonApps || (McPhersonApps = {}));

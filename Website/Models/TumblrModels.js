@@ -14,7 +14,7 @@ var McPhersonApps;
                     };
                 }
                 return CustomPost;
-            }());
+            })();
             Tumblr.CustomPost = CustomPost;
         })(Tumblr = Models.Tumblr || (Models.Tumblr = {}));
     })(Models = McPhersonApps.Models || (McPhersonApps.Models = {}));

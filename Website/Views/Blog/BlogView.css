@@ -8,11 +8,19 @@
 }
 
 .textTemplateClass{
-    display:inline-block;
+    display:block;
     height:auto;
-    padding-left:10px;
-    padding-right:10px;
+   
     margin:5px;
+    text-align:center;
+}
+
+.innerDiv{
+    text-align:left;
+    display:inline-block;
+        padding-left:10px;
+    padding-right:10px;
+     max-width:1000px;
 }
 
 #bloglistView{
@@ -32,4 +40,8 @@
   font-style: italic;
   font-size: smaller;
   text-indent: 0;
+}
+
+.headerFooterPlaceholder{
+    display:none;
 }

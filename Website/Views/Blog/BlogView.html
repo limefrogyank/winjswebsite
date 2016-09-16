@@ -14,12 +14,14 @@
 </head>
 <body>
     <div class="wordpressTemplate" data-win-control="WinJS.Binding.Template" style="display:none">
-        <div class="textTemplateClass whiteBackground">
-            <h5 data-win-bind="innerText: date Converters.readableDate" class="secondaryText"></h5>
-            <h1 data-win-bind="innerText: title" class="primaryText"></h1>
-            <hr class="dividerColor" />
-            <div class="bodyContent" data-win-bind="innerHTML: content BindingInitializers.setInnerHTML"></div>
-            <button class="win-interactive win-button" data-win-bind="onclick: buttonClickCommandBind; innerText: discussion.comment_count Converters.commentCountConverter; disabled: discussion.comment_count Converters.commentCountDisableConverter"></button>
+        <div class="textTemplateClass ">
+            <div class="innerDiv whiteBackground">
+                <h5 data-win-bind="innerText: post.date Converters.readableDate" class="secondaryText"></h5>
+                <h1 data-win-bind="innerText: post.title" class="primaryText"></h1>
+                <hr class="dividerColor" />
+                <div class="bodyContent" data-win-bind="innerHTML: post.content BindingInitializers.setInnerHTML"></div>
+                <button class="win-interactive win-button" data-win-bind="onclick: buttonClickCommandBind; innerText: post.discussion.comment_count Converters.commentCountConverter; disabled: post.discussion.comment_count Converters.commentCountDisableConverter"></button>
+            </div>
         </div>
     </div>
 
@@ -44,6 +46,12 @@
         </div>
     </div>-->
 
+    <div class="headerFooterPlaceholder">
+        <div class="header lightPrimaryColor">
+            <h1>McPhersonApps Blog</h1>
+        </div>
+    </div>
+
     <div id="content">
         
 
@@ -51,7 +59,10 @@
              data-win-control="WinJS.UI.ListView"
              data-win-bind="winControl.itemDataSource: dataContext.itemsSource.dataSource; winControl.oniteminvoked: listItemInvokedBind"
              data-win-options="{itemTemplate: select('.wordpressTemplate'),
-                                layout:{ type: WinJS.UI.ListLayout }
+                                layout:{ type: WinJS.UI.ListLayout },
+                                header: select('.header'),
+                                selectionMode: 'none',
+                                tapBehavior: 'none'
                                 }">
         </div>
        

@@ -120,7 +120,7 @@ var McPhersonApps;
                 configurable: true
             });
             return MainViewModel;
-        }(TypedMVVM.Common.ViewModels.ViewModelBase));
+        })(TypedMVVM.Common.ViewModels.ViewModelBase);
         ViewModels.MainViewModel = MainViewModel;
     })(ViewModels = McPhersonApps.ViewModels || (McPhersonApps.ViewModels = {}));
 })(McPhersonApps || (McPhersonApps = {}));

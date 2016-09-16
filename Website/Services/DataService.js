@@ -40,7 +40,11 @@ var McPhersonApps;
                     url: url
                 }).then(function (success) {
                     var response = JSON.parse(success.response);
-                    return response.posts;
+                    var postModels = [];
+                    response.posts.forEach(function (v, i, a) {
+                        postModels.push(new McPhersonApps.Models.WordPress.PostModel(v));
+                    });
+                    return postModels;
                 }, function (error) {
                     var i = 3;
                     return null;
@@ -59,7 +63,7 @@ var McPhersonApps;
                 });
             };
             return DataService;
-        }());
+        })();
         Services.DataService = DataService;
     })(Services = McPhersonApps.Services || (McPhersonApps.Services = {}));
 })(McPhersonApps || (McPhersonApps = {}));

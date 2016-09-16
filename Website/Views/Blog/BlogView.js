@@ -22,7 +22,7 @@ var McPhersonApps;
                 };
             }
             return BlogView;
-        }());
+        })();
         WinJS.UI.Pages.define("/Views/Blog/BlogView.html", new BlogView());
     })(Views = McPhersonApps.Views || (McPhersonApps.Views = {}));
 })(McPhersonApps || (McPhersonApps = {}));
