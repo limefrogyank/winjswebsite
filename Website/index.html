@@ -98,10 +98,20 @@
         with slightly different wording.
     </div>
 
+    <div data-win-control="WinJS.Binding.Template" class="commentTemplate">
+        <div>
+            <div data-win-bind="innerHTML: content BindingInitializers.setInnerHTML"></div>
+            <div data-win-bind="innerText: author.nice_name"></div>
+        </div>
+    </div>
+
     <div id="repliesFlyout" data-win-control="WinJS.UI.Flyout"
          aria-label="{Replies flyout}">
-        <h1>Testing!</h1>
-       <div data-win-control="WinJS.UI.Repeater"></div>
+       <div data-win-control="WinJS.UI.ListView"
+            data-win-bind="winControl.itemDataSource: replies.dataSource"
+            data-win-options="{itemTemplate: select('.commentTemplate')}">
+          
+       </div>
     </div>
 
 </body>

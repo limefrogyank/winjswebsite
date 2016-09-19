@@ -7,8 +7,8 @@
             this._dataService = TypedMVVM.Common.IoC.Container.resolve(Services.DataService);
             this._uiService = TypedMVVM.Common.IoC.Container.resolve(Services.UIService);
             this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
-                this._dataService.getRepliesWordPressPost(this.post.iD).then((comments) => {
-                    this._uiService.showReplies({ replies: comments }, ev.srcElement);
+                this._dataService.getRepliesWordPressPost(this.post.ID).then((comments) => {
+                    this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.srcElement);
                 });
             }).bind(this));
         }
@@ -21,7 +21,7 @@
     }
 
     export interface Author {
-        iD: number;
+        ID: number;
         login: string;
         email: boolean;
         name: string;
@@ -47,7 +47,7 @@
     }
 
     export interface TagProperties {
-        iD: number;
+        ID: number;
         name: string;
         slug: string;
         description: string;
@@ -100,7 +100,7 @@
     export interface Other_URL { }
 
     export interface Post {
-        iD: number;
+        ID: number;
         site_iD: number;
         author: Author;
         date: string;

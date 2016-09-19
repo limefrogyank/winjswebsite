@@ -17,7 +17,7 @@
         <div class="textTemplateClass ">
             <div class="innerDiv whiteBackground">
                 <h5 data-win-bind="innerText: post.date Converters.readableDate" class="secondaryText"></h5>
-                <h1 data-win-bind="innerText: post.title" class="primaryText"></h1>
+                <h2 data-win-bind="innerText: post.title" class="primaryText"></h2>
                 <hr class="dividerColor" />
                 <div class="bodyContent" data-win-bind="innerHTML: post.content BindingInitializers.setInnerHTML"></div>
                 <button class="win-interactive win-button" data-win-bind="onclick: buttonClickCommandBind; innerText: post.discussion.comment_count Converters.commentCountConverter; disabled: post.discussion.comment_count Converters.commentCountDisableConverter"></button>

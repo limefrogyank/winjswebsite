@@ -40,8 +40,6 @@ module McPhersonApps.ViewModels {
         private initialiseCommands() {
             this.initialiseShowMessageDialogCommand();
             
-
-
             this.showMessageDialogCommandBind = WinJS.Utilities.markSupportedForProcessing((() => {
                 this._showMessageDialogCommand.execute("You have just executed a TypedMVVM Command");
             }).bind(this));
