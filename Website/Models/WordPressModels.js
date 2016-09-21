@@ -15,6 +15,10 @@ var McPhersonApps;
                             _this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.srcElement);
                         });
                     }).bind(this));
+                    this.originalPostClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {
+                        var redirect = window.open(_this.post.URL, '_window');
+                        redirect.location;
+                    }).bind(this));
                 }
                 return PostModel;
             })();

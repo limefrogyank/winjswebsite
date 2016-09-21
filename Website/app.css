@@ -81,6 +81,11 @@ body {
     background-color:#6983ff;
 }
 
+.win-listview .win-headercontainer{
+    background-color: #c5cae9;
+}
+
+
 #hamburgerButton{
     color:#ffffff;
 }
@@ -126,3 +131,26 @@ body {
     color:#6983ff;
     background-color:#6983ff;
 }
+
+
+.commentDiv{
+    padding:5px;
+    display:inline-block;
+    margin:5px;
+    width:calc(100% - 20px);
+}
+
+
+
+#commentListView.win-itembox{
+    background-color:#ffffff;
+}
+
+#commentListView {
+    min-width:400px;
+}
+
+#repliesFlyout.win-flyout {
+    background-color: #ffefbe;
+}
+

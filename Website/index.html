@@ -99,17 +99,23 @@
     </div>
 
     <div data-win-control="WinJS.Binding.Template" class="commentTemplate">
-        <div>
-            <div data-win-bind="innerHTML: content BindingInitializers.setInnerHTML"></div>
-            <div data-win-bind="innerText: author.nice_name"></div>
+        <div class="whiteBackground commentDiv">
+            
+                <div data-win-bind="innerHTML: content BindingInitializers.setInnerHTML"></div>
+                <h5 data-win-bind="innerText: author.nice_name"></h5>
+            
         </div>
     </div>
 
     <div id="repliesFlyout" data-win-control="WinJS.UI.Flyout"
          aria-label="{Replies flyout}">
        <div data-win-control="WinJS.UI.ListView"
+            id="commentListView"
             data-win-bind="winControl.itemDataSource: replies.dataSource"
-            data-win-options="{itemTemplate: select('.commentTemplate')}">
+            data-win-options="{itemTemplate: select('.commentTemplate'),
+                               layout:{ type: WinJS.UI.ListLayout },
+                               selectionMode: 'none',
+                               tapBehavior: 'none'}">
           
        </div>
     </div>

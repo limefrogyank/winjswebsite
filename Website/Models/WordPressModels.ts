@@ -11,12 +11,17 @@
                     this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.srcElement);
                 });
             }).bind(this));
+            this.originalPostClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
+                var redirect = window.open(this.post.URL, '_window');
+                redirect.location;
+            }).bind(this));
         }
 
         private _dataService: Interfaces.IDataService;
         private _uiService: Interfaces.IUIService;
 
         buttonClickCommandBind: any;
+        originalPostClickCommandBind: any;
         post: Post;
     }
 
@@ -106,7 +111,7 @@
         date: string;
         modified: string;
         title: string;
-        uRL: string;
+        URL: string;
         short_uRL: string;
         content: string;
         excerpt: string;

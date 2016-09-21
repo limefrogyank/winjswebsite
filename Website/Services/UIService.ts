@@ -8,6 +8,8 @@ module McPhersonApps.Services {
             WinJS.Binding.processAll(flyoutElement, dataContext).then((success) => {
                 var flyout = <WinJS.UI.Flyout>flyoutElement.winControl;
                 flyout.show(placementElement);
+                var listview = <WinJS.UI.ListView<any>>document.getElementById('commentListView').winControl;
+                listview.forceLayout();
 
             });
         }
