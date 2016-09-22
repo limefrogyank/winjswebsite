@@ -1,4 +1,3 @@
-/// <reference path="../include/typedMVVM.ts" />
 var TypedMVVM;
 (function (TypedMVVM) {
     var Common;
@@ -19,4 +18,3 @@ var TypedMVVM;
         })(Utils = Common.Utils || (Common.Utils = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));
 })(TypedMVVM || (TypedMVVM = {}));
-//# sourceMappingURL=Helpers.js.map

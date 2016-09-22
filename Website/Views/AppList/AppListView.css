@@ -14,8 +14,8 @@
     /*height:400px;*/
      height:173px;
     /*width:173px;*/
-    width: 300px;
-    padding:5px;
+    width: 290px;
+    /*padding:5px;*/
 }
 
 .appImageIconContainer{
@@ -49,7 +49,7 @@
 
 .floatRight{
     float:right;
-    margin-right:10px;
+    /*margin-right:10px;*/
 
 }
 
