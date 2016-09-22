@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>McPhersonApps</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,9 +39,7 @@
    <!-- <script src="/designData/services/SampleService.js"></script>-->
 
     <link href="/app.css" rel="stylesheet" />
-    <script src="/Scripts/default.js" ></script>
-   
-    <script src="/Scripts/oldnavigator.js"></script>   
+     
 
     <!-- TypedMVVM.Samples references -->
     <!--<script src="app.js"></script>-->
@@ -48,30 +47,30 @@
 
 </head>
 <body>
-    <div class="splitView" data-win-control="WinJS.UI.SplitView">
+    <div class="splitView" id="mainSplitView" data-win-control="WinJS.UI.SplitView">
         <!-- Pane area -->
         <div>
             <div class="header">
-                <button class="win-splitviewpanetoggle"
+                <button class="win-splitviewpanetoggle disableSelection"
                         id="hamburgerButton"
                         data-win-control="WinJS.UI.SplitViewPaneToggle"
                         data-win-options="{ splitView: select('.splitView') }"></button>
                 <div class="title">McPhersonApps</div>
             </div>
 
-            <div class="nav-commands">
+            <div class="nav-commands disableSelection">
                 <div data-win-control="WinJS.UI.SplitViewCommand" 
                      id="homeNavButton"
                      data-win-bind="onclick: navItemCommandBind"
                      data-win-options="{ label: 'Home', icon: 'home'}"></div>
                 <div data-win-control="WinJS.UI.SplitViewCommand"
                      id="appListNavButton"
-                     data-win-options="{ label: 'App List', icon: 'browsephotos'}"
+                     data-win-options="{ label: 'App List', icon: 'favorite'}"
                      data-win-bind="onclick: navItemCommandBind"></div>
                 <div data-win-control="WinJS.UI.SplitViewCommand"
                      id="blogNavButton"
                      data-win-bind="onclick: navItemCommandBind"
-                     data-win-options="{ label: 'Settings', icon: 'settings'}"></div>
+                     data-win-options="{ label: 'Blog', icon: ''}"></div>
                 <!--<div data-win-control="WinJS.UI.SplitViewCommand" 
                      id="settingsNavButton"
                      data-win-bind="onclick: navItemCommandBind"
@@ -86,6 +85,10 @@
         <!-- Content area -->
         <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: 'Views/Main/MainView.html'}"></div>
 
+        <button class="win-splitviewpanetoggle disableSelection"
+                id="separateHamburgerButton"
+                data-win-control="WinJS.UI.SplitViewPaneToggle"
+                data-win-options="{ splitView: select('.splitView') }"></button>
     </div>
 
     <div data-win-control="WinJS.UI.ContentDialog" class="win-contentdialog" data-win-options="{
@@ -120,6 +123,9 @@
        </div>
     </div>
 
+    <script src="/Scripts/default.js"></script>
+
+    <script src="/Scripts/oldnavigator.js"></script>  
 </body>
 </html>
 

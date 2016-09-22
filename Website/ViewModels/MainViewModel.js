@@ -26,6 +26,10 @@ var McPhersonApps;
                 this.initialiseShowMessageDialogCommand();
                 //Initialise all other commands here
                 this.navItemCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {
+                    var splitview = document.getElementById('mainSplitView').winControl;
+                    if (splitview.openedDisplayMode != WinJS.UI.SplitView.OpenedDisplayMode.inline) {
+                        splitview.closePane();
+                    }
                     //this._showMessageDialogCommand.execute("nav item clicked");
                     switch (ev.currentTarget.id) {
                         case "blogNavButton":

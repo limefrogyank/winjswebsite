@@ -42,6 +42,10 @@ module McPhersonApps.ViewModels {
 
             //Initialise all other commands here
             this.navItemCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
+                var splitview = <WinJS.UI.SplitView>document.getElementById('mainSplitView').winControl;
+                if (splitview.openedDisplayMode != WinJS.UI.SplitView.OpenedDisplayMode.inline) {
+                    splitview.closePane();
+                }
                 //this._showMessageDialogCommand.execute("nav item clicked");
                 switch (ev.currentTarget.id) {
                     case "blogNavButton":

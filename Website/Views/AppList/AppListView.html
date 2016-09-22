@@ -37,7 +37,7 @@
 
     <div id="content">
         <div class="headerFooterPlaceholder">
-            <div class="header" style="height:60px;">
+            <div class="pageHeader" style="height:60px;">
                 <h1 class="win-h1">Apps &amp; Games List</h1>
                 <p>Below you'll find a list of the apps and games I have published that exist in the Windows Store</p>
             </div>
@@ -53,7 +53,7 @@
              data-win-bind="winControl.itemDataSource: dataContext.itemsSource.dataSource; winControl.oniteminvoked: listItemInvokedBind"
              data-win-options="{itemTemplate: select('#appListDataTemplate'),
                                 layout: {type: WinJS.UI.GridLayout, orientation: WinJS.UI.Orientation.vertical },
-                                header: select('.header'),
+                                header: select('.pageHeader'),
                                 footer: select('.footer')
                                 }">
         </div>

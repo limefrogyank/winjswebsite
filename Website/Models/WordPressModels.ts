@@ -8,7 +8,7 @@
             this._uiService = TypedMVVM.Common.IoC.Container.resolve(Services.UIService);
             this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {
                 this._dataService.getRepliesWordPressPost(this.post.ID).then((comments) => {
-                    this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.srcElement);
+                    this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.target);
                 });
             }).bind(this));
             this.originalPostClickCommandBind = WinJS.Utilities.markSupportedForProcessing(((ev) => {

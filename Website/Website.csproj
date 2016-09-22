@@ -93,7 +93,10 @@
     <TypeScriptCompile Include="Views\Main\MainView.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Fonts\selawk.ttf" />
+    <Content Include="Fonts\selawk.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="mcphersonapps.pubxml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

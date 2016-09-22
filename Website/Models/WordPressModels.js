@@ -12,7 +12,7 @@ var McPhersonApps;
                     this._uiService = TypedMVVM.Common.IoC.Container.resolve(McPhersonApps.Services.UIService);
                     this.buttonClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {
                         _this._dataService.getRepliesWordPressPost(_this.post.ID).then(function (comments) {
-                            _this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.srcElement);
+                            _this._uiService.showReplies({ replies: new WinJS.Binding.List(comments) }, ev.target);
                         });
                     }).bind(this));
                     this.originalPostClickCommandBind = WinJS.Utilities.markSupportedForProcessing((function (ev) {

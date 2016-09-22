@@ -1,14 +1,46 @@
 ﻿@font-face {
 
     font-family: 'Selawik';
-    src: url('http://localhost:2299/Fonts/selawk.ttf');
+    /*src: url('http://localhost:2299/Fonts/selawk.ttf');*/
+    src: url('/Fonts/selawk.ttf');
 
+}
+
+@font-face {
+  font-family: "Symbols";
+  src: url(/WinJS/fonts/Symbols.ttf);
+}
+
+@media screen and (min-width: 980px) /* Desktop */ {
+  body {
+    background: red;
+  }
+}
+
+@media screen  and (max-width: 979px) /* Tablet */ {
+  body {
+    background: blue;
+  }
+}
+
+@media screen and (max-width: 500px) /* Mobile */ {
+  body {
+    background: green;
+  }
+}
+
+html{
+    overflow:hidden;
+    height:100%;
 }
 
 body {
     /*font-family: 'Segoe UI', sans-serif;*/
     font-family: Selawik;
     background-color: #131726;
+    height: 100%;
+    overflow: auto;
+    -ms-touch-action:none;
 }
 
 .win-splitview {
@@ -31,6 +63,15 @@ body {
     .header {
         white-space: nowrap;
         height:46px;
+    }
+
+    .pageHeader {
+        white-space: nowrap;
+        height:46px;
+    }
+
+    .inlineSpacing{
+        margin-left:50px;
     }
 
     .title {
@@ -88,6 +129,13 @@ body {
 
 #hamburgerButton{
     color:#ffffff;
+}
+
+#separateHamburgerButton{
+    color:#ffffff;
+    position:absolute;
+    top:0px;
+    left:0px;
 }
 
 .textIcons{
@@ -154,3 +202,12 @@ body {
     background-color: #ffefbe;
 }
 
+
+
+.disableSelection{
+    user-select: none;
+    -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
