@@ -1,3 +1,4 @@
+/// <reference path="../include/typedMVVM.ts" />
 var TypedMVVM;
 (function (TypedMVVM) {
     var Common;
@@ -13,6 +14,7 @@ var TypedMVVM;
                     var dialogContent = document.querySelector('.win-contentdialog-content');
                     dialogContent.textContent = text;
                     dialogControl.show();
+                    //return new Windows.UI.Popups.MessageDialog(text).showAsync();
                 };
                 return DialogService;
             })();
@@ -20,3 +22,4 @@ var TypedMVVM;
         })(Services = Common.Services || (Common.Services = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));
 })(TypedMVVM || (TypedMVVM = {}));
+//# sourceMappingURL=DialogService.js.map

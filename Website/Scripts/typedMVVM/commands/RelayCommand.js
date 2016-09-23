@@ -1,9 +1,12 @@
+/// <reference path="../include/typedMVVM.ts" />
+/// <reference path="../include/win.ts" />
 var TypedMVVM;
 (function (TypedMVVM) {
     var Common;
     (function (Common) {
         var Commands;
         (function (Commands) {
+            // RelayCommand implementation: provides an implementation of ICommand
             var RelayCommand = (function () {
                 function RelayCommand(executeFunc, canExecuteFunc) {
                     if (executeFunc) {
@@ -32,3 +35,4 @@ var TypedMVVM;
         })(Commands = Common.Commands || (Common.Commands = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));
 })(TypedMVVM || (TypedMVVM = {}));
+//# sourceMappingURL=RelayCommand.js.map

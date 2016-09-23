@@ -90,15 +90,23 @@ module McPhersonApps {
     };
 
     var currentMode = null;
-    
+    var inlineSpacingCSSNode: Node = setStyle('.pageHeader{ margin-left:48px; }');
 
 
     WinJS.Application.start();
 
-
+    function setStyle(cssText: string, node:Node=null) : Node {
+        var sheet = document.createElement('style');
+        sheet.type = 'text/css';
+        (document.head || document.getElementsByTagName('head')[0]).appendChild(sheet);
+        if (!node || node.parentNode !== sheet)
+            return sheet.appendChild(document.createTextNode(cssText));
+        node.nodeValue = cssText;
+        return node;
+    };
 
     export class Handlers {
-
+    
         static handleResize() {
             var nextMode;
             if (window.innerWidth >= 1000) {
@@ -120,40 +128,40 @@ module McPhersonApps {
                         splitView.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.inline;
                         splitView.openPane();
                         separateHamburger.style.display = 'none';
-                        //splitView.onbeforeclose = (e) => {
-                        //    e.preventDefault();
-                        //};
-                        var elements = document.getElementsByClassName('pageHeader');
-                        for (var i = 0; i < elements.length; ++i) {
-                            var elem = <HTMLElement>elements[i];
-                            if (elem.classList.contains('inlineSpacing')) {
-                                elem.classList.remove('inlineSpacing');
-                            }
-                        }
+                        inlineSpacingCSSNode = setStyle('.pageHeader{ margin-left:0px; }');
+                        //var elements = document.getElementsByClassName('pageHeader');
+                        //for (var i = 0; i < elements.length; ++i) {
+                        //    var elem = <HTMLElement>elements[i];
+                        //    if (elem.classList.contains('inlineSpacing')) {
+                        //        elem.classList.remove('inlineSpacing');
+                        //    }
+                        //}
                         break;
                     case "medium":
                         splitView.openedDisplayMode = WinJS.UI.SplitView.OpenedDisplayMode.overlay;
                         splitView.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.inline;
                         splitView.onbeforeclose = null;
                         separateHamburger.style.display = 'none';
-                        var elements = document.getElementsByClassName('pageHeader');
-                        for (var i = 0; i < elements.length; ++i) {
-                            var elem = <HTMLElement>elements[i];
-                            if (elem.classList.contains('inlineSpacing')) {
-                                elem.classList.remove('inlineSpacing');
-                            }
-                        }
+                        inlineSpacingCSSNode = setStyle('.pageHeader{ margin-left:0px; }');
+                        //var elements = document.getElementsByClassName('pageHeader');
+                        //for (var i = 0; i < elements.length; ++i) {
+                        //    var elem = <HTMLElement>elements[i];
+                        //    if (elem.classList.contains('inlineSpacing')) {
+                        //        elem.classList.remove('inlineSpacing');
+                        //    }
+                        //}
                         break;
                     case "small":
                         splitView.openedDisplayMode = WinJS.UI.SplitView.OpenedDisplayMode.overlay;
                         splitView.closedDisplayMode = WinJS.UI.SplitView.ClosedDisplayMode.none;
                         splitView.onbeforeclose = null;
                         separateHamburger.style.display = 'block';
-                        var elements = document.getElementsByClassName('pageHeader');
-                        for (var i = 0; i < elements.length; ++i) {
-                            var elem = <HTMLElement>elements[i];
-                            elem.classList.add('inlineSpacing');
-                        }
+                        inlineSpacingCSSNode = setStyle('.pageHeader{ margin-left:48px; }');
+                        //var elements = document.getElementsByClassName('pageHeader');
+                        //for (var i = 0; i < elements.length; ++i) {
+                        //    var elem = <HTMLElement>elements[i];
+                        //    elem.classList.add('inlineSpacing');
+                        //}
                         break;
                 }
             }

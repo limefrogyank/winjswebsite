@@ -16,7 +16,7 @@ module McPhersonApps.ViewModels {
         private _navItemCommand: TypedMVVM.Common.Commands.ICommand<string>;
 
         private _showMessageDialogCommand: TypedMVVM.Common.Commands.ICommand<string>;
-        private _itemsSource: WinJS.Binding.ListBase<Models.WordPress.PostModel>
+        private _itemsSource: WinJS.Binding.SortedListProjection<Models.WordPress.PostModel>
       
         // Default constructor
         constructor(dataService: Interfaces.IDataService) {
@@ -78,8 +78,25 @@ module McPhersonApps.ViewModels {
             //});
 
             this._dataService.getRecentWordPressPosts().then((posts) => {
-                this.itemsSource = new WinJS.Binding.List<Models.WordPress.PostModel>(posts);
-
+                if (this.itemsSource == null)
+                    this.itemsSource = new WinJS.Binding.List<Models.WordPress.PostModel>(posts).createSorted((left, right) => {
+                        return (left.post.date > right.post.date ? -1 : +1);
+                    });
+                else {
+                    posts.forEach((v1, i1, a1) => {
+                        var found: boolean = false;
+                        this.itemsSource.some((v, i, a) => {
+                            if (v.post.ID == v1.post.ID) {
+                                found = true;
+                                return true;
+                            }
+                            return false;
+                        });
+                        if (!found) {
+                            this.itemsSource.push(v1);
+                        }
+                    });
+                }
             });
         }
 
@@ -107,8 +124,8 @@ module McPhersonApps.ViewModels {
         }
 
         // Gets or sets a value for the "sampleText" property
-        public get itemsSource(): WinJS.Binding.ListBase<Models.WordPress.PostModel> { return this._itemsSource; }
-        public set itemsSource(value: WinJS.Binding.ListBase<Models.WordPress.PostModel>) {
+        public get itemsSource(): WinJS.Binding.SortedListProjection<Models.WordPress.PostModel> { return this._itemsSource; }
+        public set itemsSource(value: WinJS.Binding.SortedListProjection<Models.WordPress.PostModel>) {
             this._itemsSource = value;
             this.raisePropertyChanged("itemsSource", value);
         }

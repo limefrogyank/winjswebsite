@@ -1,15 +1,16 @@
 ﻿#aboutContent {
     /*margin-left:10px;
     margin-right:10px;*/
-    margin:10px;
-    vertical-align:top;
+    /*margin:10px;*/
+    /*vertical-align:top;
     
-    overflow: auto;
+    overflow: auto;*/
  
-    
+    height:inherit;
 }
 
 #heading{
+    display:flex;
     text-wrap:normal;
     width:100%;
     min-height:200px;
@@ -23,15 +24,21 @@
     max-height:200px;
     width:auto;
     height:auto;
-    float:left;
-    margin-right:20px;
+    /*float:left;
+    margin-right:20px;*/
 }
 
 #myName{
     font-size:20pt;
-    
-    
-    
+}
+
+#aboutText{
+    padding:5px;
+}
+
+.verticalScrolling{
+    overflow-y:auto;
+    height:calc(100% - 48px);
 }
 
 /*@media (max-width: 500px){

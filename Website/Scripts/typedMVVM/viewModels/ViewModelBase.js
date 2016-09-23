@@ -1,3 +1,4 @@
+/// <reference path="../include/typedMVVM.ts" />
 var TypedMVVM;
 (function (TypedMVVM) {
     var Common;
@@ -13,6 +14,8 @@ var TypedMVVM;
                     this.dialogService = Common.IoC.Container.resolve(Common.Services.DialogService);
                 };
                 ViewModelBase.prototype.setupDataContext = function () {
+                    // Override in derived classes for initialising the Binding
+                    // this.dataContext = WinJS.Binding.as({...});
                 };
                 ViewModelBase.prototype.raisePropertyChanged = function (propertyName, value) {
                     if (this.dataContext && propertyName && (value != undefined)) {
@@ -29,3 +32,4 @@ var TypedMVVM;
         })(ViewModels = Common.ViewModels || (Common.ViewModels = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));
 })(TypedMVVM || (TypedMVVM = {}));
+//# sourceMappingURL=ViewModelBase.js.map
