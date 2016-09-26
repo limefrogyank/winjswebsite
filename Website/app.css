@@ -1,9 +1,6 @@
 ﻿@font-face {
-
     font-family: 'Selawik';
-    /*src: url('http://localhost:2299/Fonts/selawk.ttf');*/
     src: url('/Fonts/selawk.ttf');
-
 }
 
 @font-face {
@@ -13,19 +10,19 @@
 
 @media screen and (min-width: 980px) /* Desktop */ {
   body {
-    background: red;
+    /*background: red;*/
   }
 }
 
 @media screen  and (max-width: 979px) /* Tablet */ {
   body {
-    background: blue;
+    /*background: blue;*/
   }
 }
 
 @media screen and (max-width: 500px) /* Mobile */ {
   body {
-    background: green;
+    /*background: green;*/
   }
 }
 
@@ -43,18 +40,18 @@ body {
     -ms-touch-action:none;
 }
 
-.win-splitview {
+#mainSplitView .win-splitview {
     position:absolute;
     top:0px;
 
 }
 
-.win-splitview-pane{
+#mainSplitView .win-splitview-pane{
     color: #ffffff;
     background-color:#263eb2;
 }
 
-   .win-splitviewpanetoggle {
+   #mainSplitView .win-splitviewpanetoggle {
        
         float: left;
     }
@@ -89,15 +86,15 @@ body {
         margin-top: 20px;
     }
 
-.win-navbarcommand-button {
+#mainSplitView .win-navbarcommand-button {
     background-color: transparent;
 }
 
-.win-splitview-pane-hidden .win-navbarcommand-button {
+#mainSplitView .win-splitview-pane-hidden .win-navbarcommand-button {
     width: 46px;
 }
 
-.win-splitview-pane-hidden .win-navbarcommand-label {
+#mainSplitView .win-splitview-pane-hidden .win-navbarcommand-label {
     /* Workaround: Make sure pane doesn't scroll if ContentDialog restores focus to
        NavBarCommand's label
     */
@@ -106,21 +103,21 @@ body {
 
 
 /*SplitView content style*/
-.win-splitview-content {
+#mainSplitView .win-splitview-content {
     background-color: #ffefbe;
     background: linear-gradient(#ffefbe, #ffffee);
 }
 
 /* needed so items don't stretch to full viewport size on chrome and partly on ie11 */
-.win-listview .win-itembox, .win-itemcontainer .win-itembox{
+#mainSplitView .win-listview .win-itembox, .win-itemcontainer .win-itembox{
     height:auto;
 }
 
-.win-splitviewcommand-button{
+#mainSplitView .win-splitviewcommand-button{
     color: #ffffff;
 }
 
-.win-listview .win-itembox{
+#mainSplitView .win-listview .win-itembox{
     background-color:#6983ff;
 }
 
