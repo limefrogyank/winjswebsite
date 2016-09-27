@@ -17,7 +17,7 @@ var TypedMVVM;
                     //return new Windows.UI.Popups.MessageDialog(text).showAsync();
                 };
                 return DialogService;
-            })();
+            }());
             Services.DialogService = DialogService;
         })(Services = Common.Services || (Common.Services = {}));
     })(Common = TypedMVVM.Common || (TypedMVVM.Common = {}));

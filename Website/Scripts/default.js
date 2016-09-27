@@ -1,61 +1,51 @@
-﻿/// <reference path="navigator.ts" />
-module McPhersonApps {
-
-    export class NavigationStateOptions {
-        activationKind: any;
-        activatedEventArgs: any;
-    }
-
-    document.ontouchmove = (e) => {
+/// <reference path="navigator.ts" />
+var McPhersonApps;
+(function (McPhersonApps) {
+    var NavigationStateOptions = (function () {
+        function NavigationStateOptions() {
+        }
+        return NavigationStateOptions;
+    }());
+    McPhersonApps.NavigationStateOptions = NavigationStateOptions;
+    document.ontouchmove = function (e) {
         e.preventDefault();
     };
-    document.onpointermove = (e) => {
+    document.onpointermove = function (e) {
         e.preventDefault();
     };
-
-    var body = <HTMLBodyElement>document.getElementsByTagName("BODY")[0];
-
-    body.ontouchstart = (e) => {
+    var body = document.getElementsByTagName("BODY")[0];
+    body.ontouchstart = function (e) {
         //if (e.currentTarget.scrollTop === 0) {
         //    e.currentTarget.scrollTop = 1;
         //} else if (e.currentTarget.scrollHeight === e.currentTarget.scrollTop + e.currentTarget.offsetHeight) {
         //    e.currentTarget.scrollTop -= 1;
         //}
     };
-    body.onpointerdown = (e) => {
-
+    body.onpointerdown = function (e) {
     };
-
-    body.ontouchmove = (e) => {
+    body.ontouchmove = function (e) {
         e.stopPropagation();
     };
-    body.onpointermove = (e) => {
+    body.onpointermove = function (e) {
         e.stopPropagation();
     };
-   
     //export var currentApp: Windows.ApplicationModel.Store.CurrentAppSimulator;
     //export var currentApp: Windows.ApplicationModel.Store.CurrentApp;
-
-    WinJS.Application.onloaded = () => {
+    WinJS.Application.onloaded = function () {
         WinJS.Resources.processAll();
-    }
-
-    WinJS.Application.addEventListener("ready", (args) => {
+    };
+    WinJS.Application.addEventListener("ready", function (args) {
         var activationKind = args.detail.kind;
         var activatedEventArgs = args.detail.detail;
-        
         WinJS.Navigation.history = WinJS.Application.sessionState.navigationHistory || {};
         WinJS.Navigation.history.current.initialPlaceholder = true;
-
         // Optimize the load of the application and while the splash screen is shown, execute high priority scheduled work.
         WinJS.UI.disableAnimations();
-        var p = WinJS.UI.processAll().then(() => {
-
+        var p = WinJS.UI.processAll().then(function () {
             Handlers.handleResize();
-            window.onresize = (e) => {
+            window.onresize = function (e) {
                 Handlers.handleResize();
             };
-
             var initialState = new NavigationStateOptions();
             var navHistory = WinJS.Application.sessionState.navigationHistory;
             if (navHistory) {
@@ -66,21 +56,17 @@ module McPhersonApps {
             initialState.activationKind = activationKind;
             initialState.activatedEventArgs = activatedEventArgs;
             WinJS.Navigation.state = initialState;
-
             return WinJS.Navigation.navigate(WinJS.Navigation.location || Application.navigator.home, guid());
-        }).then(() => {
+        }).then(function () {
             return WinJS.Utilities.Scheduler.requestDrain(WinJS.Utilities.Scheduler.Priority.aboveNormal + 1);
-        }).then(() => {
+        }).then(function () {
             var viewModel = McPhersonApps.ViewModels.ViewModelFactory.mainViewModel;
             return WinJS.Binding.processAll(document.rootElement, viewModel, false, null, null);
-        }).then(() => {
+        }).then(function () {
             WinJS.UI.enableAnimations();
         });
-
         args.setPromise(p);
-
     });
-
     function guid() {
         function s4() {
             return Math.floor((1 + Math.random()) * 0x10000)
@@ -90,22 +76,18 @@ module McPhersonApps {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     }
-    
-    WinJS.Application.oncheckpoint = (args) => {
+    WinJS.Application.oncheckpoint = function (args) {
         // TODO: This application is about to be suspended. Save any state
         // that needs to persist across suspensions here. If you need to 
         // complete an asynchronous operation before your application is 
         // suspended, call args.setPromise().
         WinJS.Application.sessionState.history = WinJS.Navigation.history;
     };
-
     var currentMode = null;
-    var inlineSpacingCSSNode: Node = setStyle('.pageHeader{ margin-left:48px; }');
-
-
+    var inlineSpacingCSSNode = setStyle('.pageHeader{ margin-left:48px; }');
     WinJS.Application.start();
-
-    function setStyle(cssText: string, node:Node=null) : Node {
+    function setStyle(cssText, node) {
+        if (node === void 0) { node = null; }
         var sheet = document.createElement('style');
         sheet.type = 'text/css';
         (document.head || document.getElementsByTagName('head')[0]).appendChild(sheet);
@@ -113,24 +95,26 @@ module McPhersonApps {
             return sheet.appendChild(document.createTextNode(cssText));
         node.nodeValue = cssText;
         return node;
-    };
-
-    export class Handlers {
-    
-        static handleResize() {
+    }
+    ;
+    var Handlers = (function () {
+        function Handlers() {
+        }
+        Handlers.handleResize = function () {
             var nextMode;
             if (window.innerWidth >= 1000) {
                 nextMode = "large";
-            } else if (window.innerWidth >= 600) {
+            }
+            else if (window.innerWidth >= 600) {
                 nextMode = "medium";
-            } else {
+            }
+            else {
                 nextMode = "small";
             }
-
             if (currentMode !== nextMode) {
                 var splitViewElement = document.getElementById('mainSplitView');
-                var splitView = <WinJS.UI.SplitView>splitViewElement.winControl;
-                var separateHamburger = <HTMLButtonElement>document.getElementById('separateHamburgerButton');
+                var splitView = splitViewElement.winControl;
+                var separateHamburger = document.getElementById('separateHamburgerButton');
                 currentMode = nextMode;
                 switch (currentMode) {
                     case "large":
@@ -175,8 +159,9 @@ module McPhersonApps {
                         break;
                 }
             }
-        }
-    }    
-
-}
-
+        };
+        return Handlers;
+    }());
+    McPhersonApps.Handlers = Handlers;
+})(McPhersonApps || (McPhersonApps = {}));
+//# sourceMappingURL=default.js.map

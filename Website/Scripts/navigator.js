@@ -1,72 +1,46 @@
-﻿module Application {
+var Application;
+(function (Application) {
     "use strict";
-
-    export var navigator: PageControlNavigator;
-
-    interface PageControl {
-        getAnimationElements: () => Element;
-        getFadeInElements: () => Element;
-        //updateLayout: (element: Element, viewState: Windows.UI.ViewManagement.ApplicationViewState, lastViewstate: Windows.UI.ViewManagement.ApplicationViewState) => void;
-    }
-
-    interface StackHistory {
-        backStack: StackHistoryItem[];
-        forwardStack: StackHistoryItem[];
-        current: StackHistoryItem;
-    }
-
-    interface StackHistoryItem {
-        location: string;
-        state: string;
-    }
-
-    export class PageControlNavigator {
-
-        home: string = "";
-
-        _element: Element;
-        _lastNavigationPromise: WinJS.Promise<any> = WinJS.Promise.as();
-        //_lastViewState: Windows.UI.ViewManagement.ApplicationViewState;
-        _disposed: boolean = false;
-        _eventHandlerRemover: Function[] = [];
-
-
-        constructor(element: any, options: any) {
+    var PageControlNavigator = (function () {
+        function PageControlNavigator(element, options) {
+            this.home = "";
+            this._lastNavigationPromise = WinJS.Promise.as();
+            //_lastViewState: Windows.UI.ViewManagement.ApplicationViewState;
+            this._disposed = false;
+            this._eventHandlerRemover = [];
             this._element = element || document.createElement("div");
             this._element.appendChild(this._createPageElement());
-
             this.home = options.home;
-
             this.addRemovableEventListener(WinJS.Navigation, 'navigating', this._navigating.bind(this), false);
             this.addRemovableEventListener(WinJS.Navigation, 'navigated', this._navigated.bind(this), false);
-
             window.onresize = this._resized.bind(this);
-
             window.onpopstate = this._popStateChanged.bind(this);
-
-            navigator = this;
+            Application.navigator = this;
         }
-
-        private addRemovableEventListener(e: any, eventName: string, handler: any, capture: boolean) {
+        PageControlNavigator.prototype.addRemovableEventListener = function (e, eventName, handler, capture) {
             e.addEventListener(eventName, handler, capture);
             this._eventHandlerRemover.push(function () {
                 e.removeEventListener(eventName, handler);
             });
-        }
-
-        private get pageControl(): PageControl {
-            return this.pageElement ? <PageControl>this.pageElement.winControl : null;
-        }
-
-        get pageElement(): HTMLElement {
-            return <HTMLElement>this._element.firstElementChild;
-        }
-
+        };
+        Object.defineProperty(PageControlNavigator.prototype, "pageControl", {
+            get: function () {
+                return this.pageElement ? this.pageElement.winControl : null;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(PageControlNavigator.prototype, "pageElement", {
+            get: function () {
+                return this._element.firstElementChild;
+            },
+            enumerable: true,
+            configurable: true
+        });
         //public dispose(): void {
         //    if (this._disposed) {
         //        return;
         //    }
-
         //    this._disposed = true;
         //    WinJS.Utilities.disposeSubTree(this._element);
         //    for (var i = 0; i < this._eventHandlerRemover.length; i++) {
@@ -74,9 +48,8 @@
         //    }
         //    this._eventHandlerRemover = null;
         //}
-
         // Creates a container for a new page to be loaded into.
-        private _createPageElement(): HTMLDivElement {
+        PageControlNavigator.prototype._createPageElement = function () {
             var element = document.createElement("div");
             element.setAttribute("dir", window.getComputedStyle(this._element, null).direction);
             element.style.position = "absolute";
@@ -84,32 +57,26 @@
             element.style.width = "100%";
             element.style.height = "100%";
             return element;
-        }
-
+        };
         // Retrieves a list of animation elements for the current page.
         // If the page does not define a list, animate the entire page.
-        private _getAnimationElements(): Element {
+        PageControlNavigator.prototype._getAnimationElements = function () {
             if (this.pageControl && this.pageControl.getAnimationElements) {
                 return this.pageControl.getAnimationElements();
             }
             return this.pageElement;
-        }
-
-        private _getFadeInElements(): Element {
+        };
+        PageControlNavigator.prototype._getFadeInElements = function () {
             if (this.pageControl && this.pageControl.getFadeInElements) {
                 return this.pageControl.getFadeInElements();
             }
             return this.pageElement;
-        }         
-              
-
+        };
         //private _navigated(args: any) {
         //    var newElement = this._createPageElement();
         //    var parentedComplete;
         //    var parented = new WinJS.Promise(function (c) { parentedComplete = c; });
-
         //    this._lastNavigationPromise.cancel();
-
         //    this._lastNavigationPromise = WinJS.Promise.timeout().then(function () {
         //        return WinJS.UI.Pages.render(args.detail.location, newElement, args.detail.state, parented);
         //    }).then(function parentElement(control) {
@@ -124,54 +91,38 @@
         //            parentedComplete();
         //            WinJS.UI.Animation.enterPage(this._getAnimationElements()).done();
         //        }.bind(this));
-
         //    args.detail.setPromise(this._lastNavigationPromise);
         //}
-
-        private _popStateChanged(args: any) {
-            var navState: StackHistoryItem = args.state;
-            var navHistory: StackHistory = WinJS.Navigation.history;
+        PageControlNavigator.prototype._popStateChanged = function (args) {
+            var navState = args.state;
+            var navHistory = WinJS.Navigation.history;
             if (WinJS.Navigation.canGoBack && navState.state == navHistory.backStack[navHistory.backStack.length - 1].state) {
                 WinJS.Navigation.back();
-                //window.history.back();
             }
             else if (WinJS.Navigation.canGoForward && navState.state == navHistory.forwardStack[navHistory.forwardStack.length - 1].state) {
                 WinJS.Navigation.forward();
-                //window.history.go();
             }
-        }
-
-
-        private _navigated(args: any) {
+        };
+        PageControlNavigator.prototype._navigated = function (args) {
             this.pageElement.style.visibility = "";
-            WinJS.Promise.join(
-                [
-                    WinJS.UI.Animation.enterPage(this._getAnimationElements())
-                    //WinJS.UI.Animation.fadeIn(this._getFadeInElements())
-                ]).done(() => {
-                });
-        }
-
-        private _navigating(args: any) {
-
+            WinJS.Promise.join([
+                WinJS.UI.Animation.enterPage(this._getAnimationElements())
+            ]).done(function () {
+            });
+        };
+        PageControlNavigator.prototype._navigating = function (args) {
+            var _this = this;
             var newElement = this._createPageElement();
             this._element.appendChild(newElement);
-
             this._lastNavigationPromise.cancel();
-
-            this._lastNavigationPromise = WinJS.Promise.as().then(() => {
-                return WinJS.Promise.join(
-                    [
-                        WinJS.UI.Animation.exitPage(this._getAnimationElements()),
-
-                        WinJS.UI.Animation.fadeOut(this._getFadeInElements()),
-
-                        WinJS.UI.Pages.render(args.detail.location, newElement, args.detail.state)
-
-                    ]);
-
-            }).then(() => {
-                var navHistory : StackHistory = WinJS.Navigation.history;
+            this._lastNavigationPromise = WinJS.Promise.as().then(function () {
+                return WinJS.Promise.join([
+                    WinJS.UI.Animation.exitPage(_this._getAnimationElements()),
+                    WinJS.UI.Animation.fadeOut(_this._getFadeInElements()),
+                    WinJS.UI.Pages.render(args.detail.location, newElement, args.detail.state)
+                ]);
+            }).then(function () {
+                var navHistory = WinJS.Navigation.history;
                 WinJS.Application.sessionState.navigationHistory = {
                     backStack: navHistory.backStack.slice(0),
                     forwardStack: navHistory.forwardStack.slice(0),
@@ -181,8 +132,8 @@
                 if (navHistory.backStack.length > 0) {
                     window.history.pushState(navHistory.current, "test");
                 }
-                if (this._element.childElementCount > 1) {
-                    var oldElement = <HTMLElement>this._element.firstElementChild;
+                if (_this._element.childElementCount > 1) {
+                    var oldElement = _this._element.firstElementChild;
                     // Cleanup and remove previous element 
                     if (oldElement.winControl) {
                         if (oldElement.winControl.unload) {
@@ -193,10 +144,9 @@
                     oldElement.parentNode.removeChild(oldElement);
                     oldElement.innerText = "";
                 }
-            }, () => {
-
-                if (this._element.childElementCount > 1) {
-                    var oldElement = <HTMLElement>this._element.firstElementChild;
+            }, function () {
+                if (_this._element.childElementCount > 1) {
+                    var oldElement = _this._element.firstElementChild;
                     // Cleanup and remove previous element 
                     if (oldElement.winControl) {
                         if (oldElement.winControl.unload) {
@@ -208,37 +158,19 @@
                     oldElement.innerText = "";
                 }
             });
-
             args.detail.setPromise(this._lastNavigationPromise);
-
-        }
-
-        private cleanup() {
-
-        }
-
-        private _resized(args: UIEvent) {
+        };
+        PageControlNavigator.prototype.cleanup = function () {
+        };
+        PageControlNavigator.prototype._resized = function (args) {
             //if (this.pageControl && this.pageControl.updateLayout) {
             //    this.pageControl.updateLayout.call(this.pageControl, this.pageElement, Windows.UI.ViewManagement.ApplicationView.value, this._lastViewState);
             //}
             //this._lastViewState = Windows.UI.ViewManagement.ApplicationView.value;
-        }
-
-        //// Updates the back button state. Called after navigation has
-        //// completed.
-        //private _updateBackButton() {
-        //    var backButton = this.pageElement.querySelector("header[role=banner] .win-backbutton");
-        //    if (backButton) {
-        //        backButton.onclick = () => nav.back();
-
-        //        if (nav.canGoBack) {
-        //            backButton.removeAttribute("disabled");
-        //        } else {
-        //            backButton.setAttribute("disabled", "disabled");
-        //        }
-        //    }
-        //}
-    }
-
+        };
+        return PageControlNavigator;
+    }());
+    Application.PageControlNavigator = PageControlNavigator;
     WinJS.Utilities.markSupportedForProcessing(PageControlNavigator);
-}
+})(Application || (Application = {}));
+//# sourceMappingURL=navigator.js.map

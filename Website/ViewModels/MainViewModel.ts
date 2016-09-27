@@ -36,8 +36,20 @@ module McPhersonApps.ViewModels {
         // Gets or sets a value for the "showMessageDialogCommandBind" property: helper for enabling Data Binding
         public showMessageDialogCommandBind: any;
 
+
+
         // Initialise all the commands for the ViewModel
         private initialiseCommands() {
+            function guid() {
+                function s4() {
+                    return Math.floor((1 + Math.random()) * 0x10000)
+                        .toString(16)
+                        .substring(1);
+                }
+                return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                    s4() + '-' + s4() + s4() + s4();
+            }
+
             this.initialiseShowMessageDialogCommand();
 
             //Initialise all other commands here
@@ -50,23 +62,23 @@ module McPhersonApps.ViewModels {
                 switch (ev.currentTarget.id) {
                     case "blogNavButton":
                         if (WinJS.Navigation.location != "/Views/Blog/BlogView.html")
-                            WinJS.Navigation.navigate("/Views/Blog/BlogView.html");
+                            WinJS.Navigation.navigate("/Views/Blog/BlogView.html", guid());
                         break;
                     case "homeNavButton":
                         if (WinJS.Navigation.location != "/Views/Main/MainView.html")
-                            WinJS.Navigation.navigate("/Views/Main/MainView.html");
+                            WinJS.Navigation.navigate("/Views/Main/MainView.html", guid());
                         break;
                     case "appListNavButton":
                         if (WinJS.Navigation.location != "/Views/AppList/AppListView.html")
-                            WinJS.Navigation.navigate("/Views/AppList/AppListView.html");
+                            WinJS.Navigation.navigate("/Views/AppList/AppListView.html", guid());
                         break;
                     case "aboutNavButton":
                         if (WinJS.Navigation.location != "/Views/About/AboutView.html")
-                            WinJS.Navigation.navigate("/Views/About/AboutView.html");
+                            WinJS.Navigation.navigate("/Views/About/AboutView.html", guid());
                         break;
                     default:
                         if (WinJS.Navigation.location != "/Views/Main/MainView.html")
-                            WinJS.Navigation.navigate("/Views/Main/MainView.html");
+                            WinJS.Navigation.navigate("/Views/Main/MainView.html", guid());
                         break;
             }
             }).bind(this));
