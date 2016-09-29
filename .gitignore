@@ -3,10 +3,10 @@
 
 # Javascript and map files
 *.js.map
-Models/**/*.js
+Models/*.js
 Services/**/*.js
-Scripts/**/*.js
-ViewModels/**/*.js
+Scripts/*.js
+ViewModels/*.js
 Views/**/*.js
 
 # User-specific files
